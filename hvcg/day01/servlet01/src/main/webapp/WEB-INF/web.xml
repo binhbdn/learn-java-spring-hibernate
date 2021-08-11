@@ -13,4 +13,12 @@
     <url-pattern>/hi</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>GoodbyeServlet</servlet-name>
+    <servlet-class>vn.hvcg.GoodbyeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GoodbyeServlet</servlet-name>
+    <url-pattern>/bye</url-pattern>
+  </servlet-mapping>
 </web-app>
