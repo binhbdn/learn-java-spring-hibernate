@@ -9,4 +9,13 @@
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hi</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HelloJDBC</servlet-name>
+    <servlet-class>vn.hvcg.GetDataFromDatabase</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloJDBC</servlet-name>
+    <url-pattern>/db</url-pattern>
+  </servlet-mapping>
 </web-app>
