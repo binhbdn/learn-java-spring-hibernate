@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.SearchDTO;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,4 +29,23 @@ public class Search {
         return String.format("Exist of %s, %s: ", searchDTO.getFname(), searchDTO.getLname())
                 + ": " + checkIfExistInDB(searchDTO);
     }
+
+    @PostMapping(value = "/search-json")
+    @ResponseBody
+    public String searchUserJson(@RequestBody SearchDTO searchDTO){
+        return String.format("Exist of %s, %s: ", searchDTO.getFname(), searchDTO.getLname())
+                + ": " + checkIfExistInDB(searchDTO);
+    }
+    /*
+    test by Postman:
+    POST http://localhost:9090/search-json
+    Body - Json:
+    {
+    "fname": "1",
+    "lname": "2"
+    }
+
+    Response:
+    Exist of 1, 2: : true
+    */
 }
