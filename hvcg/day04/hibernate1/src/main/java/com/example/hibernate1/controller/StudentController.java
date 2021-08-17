@@ -25,4 +25,15 @@ public class StudentController {
 
         return results;
     }
+
+    @PostMapping(value = "/student")
+    public Student createStudent(@RequestBody Student student){
+        Session session = SessionFactorySingleton.get().openSession();
+        session.beginTransaction();
+        session.saveOrUpdate(student);
+        session.getTransaction().commit();
+        session.close();
+
+        return student;
+    }
 }
