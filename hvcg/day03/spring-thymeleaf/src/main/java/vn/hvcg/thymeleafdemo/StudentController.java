@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class StudentController {
     private static final List<Student> students = new ArrayList<>();
 
-    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-    public String studentList(Model model) {
+    static {
         Connection con = null;
         try {
-//            Class.forName("com.mysql.jdbc.Driver");
+            //Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/students", "root", "");
             Statement stat = con.createStatement();
             String query = "SELECT * FROM tbl_students";
@@ -40,7 +40,10 @@ public class StudentController {
                 }
             }
         }
+    }
 
+    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
+    public String studentList(Model model) {
         model.addAttribute("students", students);
 
         return "students";
