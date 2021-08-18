@@ -21,5 +21,6 @@
 
         <!-- … -->
         <mapping class="com.example.hibernate1.model.Student" />
+        <mapping class="com.example.hibernate1.model.SchoolClass" />
     </session-factory>
 </hibernate-configuration>
