@@ -69,8 +69,8 @@ public abstract class GenericDAO<T, ID> implements InterfaceDAO<T, ID> {
     @Override
     public List<T> findByIds(List<ID> ids) {
         Session session = SessionFactorySingleton.get().openSession();
-        //Query query = session.createQuery("from " + getClazzName() + " where " + getIdProperty() + " = :ids");
-        Query query = session.createQuery("from " + clazz.getSimpleName() + " where " + getIdProperty() + " = :ids");
+        //Query query = session.createQuery("from " + getClazzName() + " where " + getIdProperty() + " in :ids");
+        Query query = session.createQuery("from " + clazz.getSimpleName() + " where " + getIdProperty() + " in :ids");
         query.setParameter("ids", ids);
         List<T> list = (List<T>) query.list();
         session.close();
