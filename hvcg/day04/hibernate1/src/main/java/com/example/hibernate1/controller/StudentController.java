@@ -1,6 +1,7 @@
 package com.example.hibernate1.controller;
 
 import com.example.hibernate1.dao.SessionFactorySingleton;
+import com.example.hibernate1.model.SchoolClass;
 import com.example.hibernate1.model.Student;
 import org.hibernate.Session;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,20 @@ public class StudentController {
         List<Student> results = (List<Student>) session.createQuery( "from Student" ).list(); // HQL - Hibernate Query Language
         for ( Student student : (List<Student>) results ) {
             System.out.println( "Student: " + student.toString());
+        }
+        //session.getTransaction().commit();
+        session.close();
+
+        return results;
+    }
+
+    @GetMapping(value = "/school_class")
+    public List<SchoolClass> fetchClazzes(){
+        Session session = SessionFactorySingleton.get().openSession();
+        //session.beginTransaction();
+        List<SchoolClass> results = (List<SchoolClass>) session.createQuery( "from SchoolClass" ).list(); // HQL - Hibernate Query Language
+        for ( SchoolClass clazz : (List<SchoolClass>) results ) {
+            System.out.println( "Class: " + clazz.toString());
         }
         //session.getTransaction().commit();
         session.close();
