@@ -81,16 +81,26 @@ public abstract class GenericDAO<T, ID> implements InterfaceDAO<T, ID> {
     @Override
     public void delete(T object) {
         Session session = SessionFactorySingleton.get().openSession();
+        session.beginTransaction();
         session.delete(object);
+        session.getTransaction().commit();
+        session.close();
     }
 
     @Override
     public void deleteById(ID id) {
-        findById(id).ifPresent(this::delete);
+        //findById(id).ifPresent(this::delete);
         /*
             Optional<T> op = findById(id);
             if (op.isPresent()) {
             delete(op.get());
         }*/
+        Session session = SessionFactorySingleton.get().openSession();
+        session.beginTransaction();
+        String hql = "delete " + clazz.getSimpleName() + " where id = :id";
+        Query query = session.createQuery(hql).setParameter("id", id);
+        query.executeUpdate();
+        session.getTransaction().commit();
+        session.close();
     }
 }
