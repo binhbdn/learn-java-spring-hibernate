@@ -1,4 +1,4 @@
-package vn.hvcg.security.student.model;
+package vn.hvcg.student.model;
 
 import javax.persistence.*;
 import java.util.Date;

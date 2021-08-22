@@ -1,6 +1,6 @@
-package vn.hvcg.security.student.repository;
+package vn.hvcg.student.repository;
 
-import vn.hvcg.security.student.model.Student;
+import vn.hvcg.student.model.Student;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

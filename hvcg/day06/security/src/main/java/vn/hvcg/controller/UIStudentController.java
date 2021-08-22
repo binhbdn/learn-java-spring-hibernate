@@ -1,7 +1,7 @@
-package vn.hvcg.security.student.controller;
+package vn.hvcg.student.controller;
 
-import vn.hvcg.security.student.repository.StudentRepository;
-import vn.hvcg.security.student.model.Student;
+import vn.hvcg.student.repository.StudentRepository;
+import vn.hvcg.student.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

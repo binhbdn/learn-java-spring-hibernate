@@ -1,4 +1,4 @@
-package vn.hvcg.security.security;
+package vn.hvcg.security;
 
 import org.springframework.web.filter.GenericFilterBean;
 
